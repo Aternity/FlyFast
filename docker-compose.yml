@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  flightsearch:
+    build: ./FlyFast-FlightSearch
+    container_name: Search
+    ports:
+      - "8080:8080"
+  webui:
+    build: ./FlyFast-WebUI
+    container_name: WebUI
+    ports:
+      - "3000:3000"
