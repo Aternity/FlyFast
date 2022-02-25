@@ -3,15 +3,35 @@
 This repository contains the full source code for the Demo Application.
 
 ## Getting Started
+### First Method
+1. Clone and Update Submodules
+```
+git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
+```
+### Second Method
 1. Clone/download this repository.
 ```
-git clone https://github.com/Aternity/FlyFast-WebUI.git
+git clone https://github.com/Aternity/FlyFast.git
 ```
 2. Initialize submodules
 ```
 git submodule init
 ```
 3. Update submodules
+```
+git submodule update
+```
+
+## Updating Based On Future Changes
+### First Method
+Pull Changes From Submodules.
+```
+git pull --recurse-submodules
+```
+### Second Method
+Update submodules.
+
+**Note:** If a submodule is not initiated, add the `--init` flag.
 ```
 git submodule update
 ```
