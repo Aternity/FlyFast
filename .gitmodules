@@ -1,0 +1,6 @@
+[submodule "FlyFast-WebUI"]
+	path = FlyFast-WebUI
+	url = https://github.com/Aternity/FlyFast-WebUI
+[submodule "FlyFast-FlightSearch"]
+	path = FlyFast-FlightSearch
+	url = https://github.com/Aternity/FlyFast-FlightSearch
