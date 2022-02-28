@@ -23,9 +23,9 @@ git submodule update
 ```
 
 ## Updating Based On Future Changes
-If this is **the first time** pulling the changes, make sure to add the `--init` flag before `--recursive`.
+Stay up to date with the latest changes.
 ```
-git submodule update --recursive
+git submodule update --remote
 ```
 
 ## Starting and Stopping the Application Through Docker
