@@ -22,7 +22,7 @@ Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https
 
 Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
 
-### 2. Start the containers
+### 3. Start the containers
 
 Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
 
@@ -56,7 +56,7 @@ docker-compose build --no-cache
 docker-compose up
 ```
 
-### 3. Stop the containers
+### 4. Stop the containers
 ```
 docker-compose stop
 ```
