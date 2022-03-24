@@ -50,5 +50,8 @@ services:
   webui:
     build: ./FlyFast-WebUI
     container_name: WebUI
+    environment:
+      REACT_APP_FLIGHT_SEARCH: http://Search:8080
+      REACT_APP_OPENTELEMETRY_ENDPOINT: http://apm-collector:55681
     ports:
       - "80:80"
