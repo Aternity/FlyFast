@@ -1,65 +1,69 @@
 # FlyFast
 
-This repository contains the full source code for the Demo Application.
+This repository contains the full source code for FlyFast.
+
+For the source code of the WebUI, head over to the [WebUI](https://github.com/Aternity/FlyFast-WebUI).
+
+For the source code of the backend, head over to [FlightSearch](https://github.com/Aternity/FlyFast-FlightSearch).
 
 ## Prerequisites
 
-1. Git
+1. [Git](https://git-scm.com/) (Optional)
 2. an Aternity APM account (SaaS)
 3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Step by Step
-### 1. Clone and Update Submodules
-```
-git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
-```
-### 2. Get your CustomerID & SaaS Analysis Server Host details from the Aternity APM webconsole
+1. Clone and Update Submodules
+    ```
+    git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
+    ```
+2. Get your CustomerID & SaaS Analysis Server Host details from the Aternity APM webconsole
 
-Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
+    Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
 
-1. Find your **CustomerID**, for example *12341234-12341234-13241234*
-2. Grab **SaaS Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
+    1. Find your **CustomerID**, for example *12341234-12341234-13241234*
+    2. Grab **SaaS Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
 
-Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
+    Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
 
-### 3. Start the containers
+3. Start the containers
 
-Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
+    Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
 
-```bash
-cd FlyFast
+    ```bash
+    cd FlyFast
 
-# Configure the environment variables for the Aternity OpenTelemetry Collector
-export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
-export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+    # Configure the environment variables for the Aternity OpenTelemetry Collector
+    export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+    export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 
-# Build our docker with no cache
-docker-compose build --no-cache
+    # Build our docker with no cache
+    docker-compose build --no-cache
 
-# Start the service
-docker-compose up
-```
+    # Start the service
+    docker-compose up
+    ```
 
-or with PowerShell:
+    or with PowerShell:
 
-```PowerShell
-cd FlyFast
+    ```PowerShell
+    cd FlyFast
 
-# Configure the environement variable for the Aternity OpenTelemetry Collector
-$env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
-$env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+    # Configure the environement variable for the Aternity OpenTelemetry Collector
+    $env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+    $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 
-# Build our docker with no cache
-docker-compose build --no-cache
+    # Build our docker with no cache
+    docker-compose build --no-cache
 
-# Start the service
-docker-compose up
-```
+    # Start the service
+    docker-compose up
+    ```
 
-### 4. Stop the containers
-```
-docker-compose stop
-```
+4. Stop the containers
+    ```
+    docker-compose stop
+    ```
 
 ## Notes
 ### Updating Based On Future Changes
