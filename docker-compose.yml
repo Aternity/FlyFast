@@ -28,7 +28,7 @@ services:
       # OpenTelemetry, https://opentelemetry.io
       # - "4318:4318/tcp"     # OpenTelemetry OTLP JSON/Protobuf over HTTP
       - "55681:55681/tcp" # OpenTelemetry OTLP JSON/Protobuf over HTTP
-      - "4317:4317/tcp"   # OpenTelemetry OTLP over gRPC
+      # - "4317:4317/tcp"   # OpenTelemetry OTLP over gRPC
       
       # Jaeger, https://www.jaegertracing.io
       # - "14268:14268/tcp" # Jaeger Thrift Binary over HTTP
@@ -36,22 +36,22 @@ services:
       # - "6832:6832/udp"   # Jaeger Thrift Binary
       
       # Zipkin, https://zipkin.io
-      - "9411:9411/tcp"   # Zipkin v2 json/protobuf and v1 json/thrift
+      # - "9411:9411/tcp"   # Zipkin v2 json/protobuf and v1 json/thrift
       # - "5775:5775/udp"   # Jaeger's Thrift support for Zipkin v1
 
-  flightsearch:
+  flyfast-flightsearch:
     build: ./FlyFast-FlightSearch
-    container_name: Search
+    container_name: flyfast-flightsearch
     environment:
-      COLLECTOR_URL: http://apm-collector:9411/api/v2/spans
+      COLLECTOR_URL: http://apm-collector:55681/v1/traces
     ports:
       - "8080:8080"
 
-  webui:
+  flyfast-webui:
     build: ./FlyFast-WebUI
-    container_name: WebUI
+    container_name: flyfast-webui
     environment:
-      REACT_APP_FLIGHT_SEARCH: http://Search:8080
+      REACT_APP_FLIGHT_SEARCH: http://flyfast-flightsearch:8080
       REACT_APP_OPENTELEMETRY_ENDPOINT: http://apm-collector:55681
     ports:
       - "80:80"
