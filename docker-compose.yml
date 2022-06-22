@@ -17,7 +17,7 @@
 version: '3.4'
 services:
 
-  apmcollector:
+  apm-collector:
     image: registry.hub.docker.com/aternity/apm-collector:latest
     container_name: apm-collector
     environment:
@@ -41,6 +41,8 @@ services:
 
   flyfast-flightsearch:
     build: ./FlyFast-FlightSearch
+    depends_on:
+      - apm-collector
     container_name: flyfast-flightsearch
     environment:
       COLLECTOR_URL: http://apm-collector:55681/v1/traces
@@ -49,6 +51,9 @@ services:
 
   flyfast-webui:
     build: ./FlyFast-WebUI
+    depends_on:
+      - flyfast-flightsearch
+      - apm-collector
     container_name: flyfast-webui
     environment:
       REACT_APP_FLIGHT_SEARCH: http://flyfast-flightsearch:8080
