@@ -17,6 +17,14 @@ For the source code of the backend, head over to [FlightSearch](https://github.c
     ```
     git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
     ```
+    Or
+    ```
+    git clone https://github.com/Aternity/FlyFast.git
+    cd FlyFast
+    git submodule init
+    git submodule update
+    ```
+
 2. Get your CustomerID & SaaS Analysis Server Host details from the Aternity APM webconsole
 
     Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
@@ -71,3 +79,8 @@ Stay up to date with the latest changes.
 ```
 git submodule update --remote
 ```
+
+## License
+Copyright (c) 2022 Riverbed Technology, Inc.
+
+The contents provided here are licensed under the terms and conditions of the MIT License accompanying the software ("License"). The scripts are distributed "AS IS" as set forth in the License. The script also include certain third party code. All such third party code is also distributed "AS IS" and is licensed by the respective copyright holders under the applicable terms and conditions (including, without limitation, warranty and liability disclaimers) identified in the license notices accompanying the software.
