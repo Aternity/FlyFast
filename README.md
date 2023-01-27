@@ -1,10 +1,10 @@
 # FlyFast
 
-This repository contains the full source code for FlyFast.
+This cookbook contains the full source code for FlyFast, utilizing both the  [FlyFast-WebUI](https://github.com/Aternity/FlyFast-WebUI) and [FlyFast-FlightSearch](https://github.com/Aternity/FlyFast-FlightSearch) to demonstrates how the [Alluvio Aternity DEM](https://www.riverbed.com/products/digital-experience-management) solution provides observability of a full-stack application using [OpenTelemetry](https://opentelemetry.io/) auto-instrumentation.
 
-For the source code of the WebUI, head over to the [WebUI](https://github.com/Aternity/FlyFast-WebUI).
+To instrument the FlyFast demo app, the OpenTelemetry agent will be containerized with the app and injected in the app at startup. The agent will be configured to export the tracing to the Alluvio Aternity APM SaaS backend via the [Alluvio Aternity OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) that will run in an another container.
 
-For the source code of the backend, head over to [FlightSearch](https://github.com/Aternity/FlyFast-FlightSearch).
+![diagram](/images/diagram.png)
 
 ## Prerequisites
 
@@ -13,67 +13,89 @@ For the source code of the backend, head over to [FlightSearch](https://github.c
 3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Step by Step
-1. Clone and Update Submodules
-    ```
-    git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
-    ```
-    Or
-    ```
-    git clone https://github.com/Aternity/FlyFast.git
-    cd FlyFast
-    git submodule init
-    git submodule update
-    ```
+### 1. Clone and Update Submodules
+    
+```
+git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
+```
 
-2. Get your CustomerID & SaaS Analysis Server Host details from the Aternity APM webconsole
+Or
 
-    Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
+```
+git clone https://github.com/Aternity/FlyFast.git
+cd FlyFast
+git submodule init
+git submodule update
+```
 
-    1. Find your **CustomerID**, for example *12341234-12341234-13241234*
-    2. Grab **SaaS Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
+### 2. Get your CustomerID & SaaS Analysis Server Host details from the Aternity APM webconsole
 
-    Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
+Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
 
-3. Start the containers
+1. Find your **CustomerID**, for example *12341234-12341234-13241234*
+2. Grab **SaaS Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
 
-    Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
+Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
 
-    ```bash
-    cd FlyFast
+### 3. Start the containers
 
-    # Configure the environment variables for the Aternity OpenTelemetry Collector
-    export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
-    export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
 
-    # Build our docker with no cache
-    docker-compose build --no-cache
+```bash
+cd FlyFast
 
-    # Start the service
-    docker-compose up
-    ```
+# Configure the environment variables for the Aternity OpenTelemetry Collector
+export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 
-    or with PowerShell:
+# Build our docker with no cache
+docker-compose build --no-cache
 
-    ```PowerShell
-    cd FlyFast
+# Start the service
+docker-compose up
+```
 
-    # Configure the environement variable for the Aternity OpenTelemetry Collector
-    $env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
-    $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+or with PowerShell:
 
-    # Build our docker with no cache
-    docker-compose build --no-cache
+```PowerShell
+cd FlyFast
 
-    # Start the service
-    docker-compose up
-    ```
+# Configure the environement variable for the Aternity OpenTelemetry Collector
+$env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+$env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 
-4. Stop the containers
-    ```
-    docker-compose stop
-    ```
+# Build our docker with no cache
+docker-compose build --no-cache
+
+# Start the service
+docker-compose up
+```
+
+### 4. Navigate Through The Application And Monitor
+
+The web application should now be available on [http://localhost](http://localhost).
+
+Open the url in your browser and navigate through the application a few times to generate some traffic.
+
+### 5. ALLUVIO Aternity APM webconsole
+
+Go to the APM webconsole to monitor the instance and observe every transaction.
+
+![Alluvio Aternity APM OpenTelemetry Traces](/images/transaction.png)
+
+View details of a specific transaction as a waterfall chart:
+
+![Alluvio Aternity APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
 
 ## Notes
+### Stop The App and All The Containers
+Press `CTRL + C` in the shell where it is running.
+
+Or in a shell, go to the folder where you keep the [docker-compose.yml](docker-compose.yml) and run:
+```
+docker-compose stop
+```
+
 ### Updating Based On Future Changes
 Stay up to date with the latest changes.
 ```
