@@ -10,7 +10,8 @@ To instrument the FlyFast demo app, the OpenTelemetry agent will be containerize
 
 1. [Git](https://git-scm.com/) (Optional)
 2. an Aternity APM account (SaaS)
-3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
+3. an Aternity UJI account (Optional)
+4. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Step by Step
 ### 1. Clone and Update Submodules
@@ -37,7 +38,15 @@ Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https
 
 Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
 
-### 3. Start the containers
+### 3. Get your page tag from the Aternity UJI's sites page (Optional)
+
+Navigate to Aternity UJI (for example [https://portals.bluetriangle.com](https://portals.bluetriangle.com)) > Sites > Select Site > JS Source:
+
+1. Find your **JS Source**, for example *<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my-UJI-site-id}}\.btttag\.com\/btt\.js\"><\/script>*
+
+Additional Information can be found [here](https://help.aternity.com/bundle/release_news_apm_agent_console_apm/page/console/topics/admin_config_uji.html).
+
+### 4. Start the containers
 
 Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
 
@@ -47,6 +56,10 @@ cd FlyFast
 # Configure the environment variables for the Aternity OpenTelemetry Collector
 export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+
+# Configure the environment variables for Aternity UJI (Optional)
+# Replace {{my-UJI-tagid}} with the UJI site id 
+export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my-UJI-site-id}}\.btttag\.com\/btt\.js\"><\/script>'
 
 # Build our docker with no cache
 docker-compose build --no-cache
@@ -64,6 +77,10 @@ cd FlyFast
 $env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 
+# Configure the environment variables for Aternity UJI (Optional)
+# Replace {{my-UJI-tagid}} with the UJI site id 
+$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my-UJI-site-id}}\.btttag\.com\/btt\.js\"><\/script>'
+
 # Build our docker with no cache
 docker-compose build --no-cache
 
@@ -71,13 +88,13 @@ docker-compose build --no-cache
 docker-compose up
 ```
 
-### 4. Navigate Through The Application And Monitor
+### 5. Navigate Through The Application And Monitor
 
 The web application should now be available on [http://localhost](http://localhost).
 
 Open the url in your browser and navigate through the application a few times to generate some traffic.
 
-### 5. ALLUVIO Aternity APM webconsole
+### 6. ALLUVIO Aternity APM webconsole
 
 Go to the APM webconsole to monitor the instance and observe every transaction.
 
