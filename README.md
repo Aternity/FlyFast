@@ -8,8 +8,8 @@ To instrument the FlyFast demo app, the OpenTelemetry agent will be containerize
 
 ## Prerequisites
 
-1. an ALLUVIO Aternity APM account (SaaS)
-2. optional - an ALLUVIO Aternity UJI account (Optional)
+1. an account for ALLUVIO Aternity APM (SaaS)
+2. optional - an account for ALLUVIO Aternity UJI
 3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
 4. git installed, see [Git](https://git-scm.com/)
 
@@ -21,7 +21,7 @@ To instrument the FlyFast demo app, the OpenTelemetry agent will be containerize
 git clone --recurse-submodules https://github.com/Aternity/FlyFast.git --depth 1
 ```
 
-### 2. Get your CustomerID & SaaS Analysis Server Host details from the ALLUVIO Aternity APM webconsole
+### 2. Get your CustomerID & SaaS Analysis Server Host details for APM
 
 Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
 
@@ -30,7 +30,7 @@ Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https
 
 Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
 
-### 3. Get the Tag Prefix for the site FlyFast in ALLUVIO Aternity UJI (Optional)
+### 3. Get the UJI Tag Prefix (Optional)
 
 1. Navigate to [Aternity UJI](https://portals.bluetriangle.com), Settings & Administration > Sites
 2. Find the site configured for FlyFast and get the **UJI Tag Prefix**, for example *my-UJI-tag-prefix-flyfast*
