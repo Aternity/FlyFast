@@ -33,7 +33,7 @@ Those information are required to activate the container of the [Aternity APM Co
 ### 3. Get the UJI Tag Prefix (Optional)
 
 1. Navigate to [Aternity UJI](https://portals.bluetriangle.com), Settings & Administration > Sites
-2. Find the site configured for FlyFast and get the **UJI Tag Prefix**, for example *my-UJI-tag-prefix-flyfast*
+2. Find the site configured for FlyFast and get the **UJI Tag Prefix**, for example *my-UJI-Tag-Prefix-FlyFast*
 
 ### 4. Start the containers
 
