@@ -28,7 +28,7 @@ Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https
 1. Find your **CustomerID**, for example *12341234-12341234-13241234*
 2. Grab **SaaS Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
 
-Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
+Those information are required to activate the container of the [Aternity APM Collector](https://hub.docker.com/r/aternity/apm-collector)
 
 ### 3. Get the UJI Tag Prefix (Optional)
 
