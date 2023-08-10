@@ -17,7 +17,7 @@ To instrument the FlyFast demo app, the OpenTelemetry agent will be containerize
 ### 1. Clone and Update Submodules
     
 ```
-git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
+git clone --recurse-submodules https://github.com/Aternity/FlyFast.git --depth 1
 ```
 
 Or
