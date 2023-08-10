@@ -7,7 +7,7 @@
 #   export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 #
 #   # Optional configuration for UJI
-#   export ALLUVIO_UJI_TAG="<script id=ALLUVIO-Aternity-UJI src=http:\/\/my-UJI-site-id\.btttag\.com\/btt\.js><\/script>"
+#   export ALLUVIO_UJI_TAG="<script id=ALLUVIO-Aternity-UJI src=http:\/\/my-UJI-tag-prefix-flyfast\.btttag\.com\/btt\.js><\/script>"
 #
 #   # Start containers
 #   docker compose up
@@ -19,7 +19,7 @@
 #   $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 #
 #   # Optional configuration for UJI
-#   # $env:ALLUVIO_UJI_TAG="<script id=ALLUVIO-Aternity-UJI src=http:\/\/my-UJI-site-id\.btttag\.com\/btt\.js><\/script>"
+#   $env:ALLUVIO_UJI_TAG="<script id=ALLUVIO-Aternity-UJI src=http:\/\/my-UJI-tag-prefix-flyfast\.btttag\.com\/btt\.js><\/script>"
 #
 #   # Start containers
 #   docker compose up
