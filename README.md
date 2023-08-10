@@ -43,11 +43,13 @@ Start the containers using the [docker-compose.yml](docker-compose.yml), for exa
 cd FlyFast
 
 # Configure the ALLUVIO Aternity APM OpenTelemetry Collector
+# Replace the value with the information collected at step 2.
 export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
-# Optional - Configure the ALLUVIO Aternity UJI tag, replacing {{my UJI Tag Prefix FlyFast}} with the **UJI Tag Prefix**
-export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my UJI Tag Prefix FlyFast}}\.btttag\.com\/btt\.js\"><\/script>'
+# Optional - Configure the ALLUVIO Aternity UJI tag
+# Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
+export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
 # Build the containers
 docker compose build --no-cache
@@ -62,11 +64,13 @@ or with PowerShell:
 cd FlyFast
 
 # Configure the ALLUVIO Aternity APM OpenTelemetry Collector
+# Replace the value with your information collected at step 2.
 $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
 $env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
-# Optional - Configure the ALLUVIO Aternity UJI tag, replacing {{my UJI Tag Prefix FlyFast}} with the **UJI Tag Prefix**
-$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my UJI Tag Prefix FlyFast}}\.btttag\.com\/btt\.js\"><\/script>'
+# Optional - Configure the ALLUVIO Aternity UJI tag
+# Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
+$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
 # Build the containers from scratch
 docker-compose build --no-cache
