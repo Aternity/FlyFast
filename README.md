@@ -32,7 +32,7 @@ Those information are required to activate the container of the [Aternity APM Co
 
 ### 3. Get the UJI Tag Prefix (Optional)
 
-1. Open [Aternity UJI](https://portals.bluetriangle.com) and navigate to Settings & Administration > Sites
+1. Open [ALLUVIO Aternity UJI](https://portals.bluetriangle.com) and navigate to Settings & Administration > Sites
 2. Find the site configured for FlyFast and get the **UJI Tag Prefix**, for example *my-UJI-Tag-Prefix-FlyFast*
 
 ### 4. Start the containers
@@ -89,11 +89,11 @@ Open the url in your browser and navigate through the application a few times to
 
 Go to the APM webconsole to monitor the instance and observe every transaction.
 
-![Alluvio Aternity APM OpenTelemetry Traces](/images/transaction.png)
+![ALLUVIO Aternity APM OpenTelemetry Traces](/images/transaction.png)
 
 View details of a specific transaction as a waterfall chart:
 
-![Alluvio Aternity APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
+![ALLUVIO Aternity APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
 
 ## Notes
 
