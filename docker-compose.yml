@@ -1,18 +1,28 @@
 # Usage
-#   docker-compose build --no-cache
-#   docker-compose up
 #
 # Example in Bash
+#
+#   # Configuration for APM
 #   export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 #   export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
-#   docker-compose build --no-cache
-#   docker-compose up
+#
+#   # Optional configuration for UJI
+#   export ALLUVIO_UJI_TAG="<script id=ALLUVIO-Aternity-UJI src=http:\/\/my-UJI-tag-prefix-flyfast\.btttag\.com\/btt\.js><\/script>"
+#
+#   # Start containers
+#   docker compose up
 #
 # Example in PowerShell
+#
+#   # Configuration for APM
 #   $env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 #   $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
-#   docker-compose build --no-cache
-#   docker-compose up
+#
+#   # Optional configuration for UJI
+#   $env:ALLUVIO_UJI_TAG="<script id=ALLUVIO-Aternity-UJI src=http:\/\/my-UJI-tag-prefix-flyfast\.btttag\.com\/btt\.js><\/script>"
+#
+#   # Start containers
+#   docker compose up
 
 version: '3.4'
 services:

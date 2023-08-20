@@ -1,50 +1,39 @@
 # FlyFast
 
-This cookbook contains the full source code for FlyFast, utilizing both the  [FlyFast-WebUI](https://github.com/Aternity/FlyFast-WebUI) and [FlyFast-FlightSearch](https://github.com/Aternity/FlyFast-FlightSearch) to demonstrates how the [Alluvio Aternity DEM](https://www.riverbed.com/products/digital-experience-management) solution provides observability of a full-stack application using [OpenTelemetry](https://opentelemetry.io/) auto-instrumentation.
+This cookbook contains the full source code for FlyFast, utilizing both the  [FlyFast-WebUI](https://github.com/Aternity/FlyFast-WebUI) and [FlyFast-FlightSearch](https://github.com/Aternity/FlyFast-FlightSearch) to demonstrates how the [ALLUVIO Aternity DEM](https://www.riverbed.com/products/digital-experience-management) solution provides observability of a full-stack application using [OpenTelemetry](https://opentelemetry.io/) auto-instrumentation.
 
-To instrument the FlyFast demo app, the OpenTelemetry agent will be containerized with the app and injected in the app at startup. The agent will be configured to export the tracing to the Alluvio Aternity APM SaaS backend via the [Alluvio Aternity OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) that will run in an another container.
+To instrument the FlyFast demo app, the OpenTelemetry agent will be containerized with the app and injected in the app at startup. The agent will be configured to export the tracing to the ALLUVIO Aternity APM SaaS backend via the [ALLUVIO Aternity OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) that will run in an another container.
 
 ![diagram](/images/diagram.png)
 
 ## Prerequisites
 
-1. [Git](https://git-scm.com/) (Optional)
-2. an Aternity APM account (SaaS)
-3. an Aternity UJI account (Optional)
-4. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
+1. an account for ALLUVIO Aternity APM (SaaS)
+2. optional - an account for ALLUVIO Aternity UJI
+3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
+4. git installed, see [Git](https://git-scm.com/)
 
 ## Step by Step
-### 1. Clone and Update Submodules
+
+### 1. Get a local copy
     
-```
-git clone --recurse-submodules https://github.com/Aternity/FlyFast.git
-```
-
-Or
-
-```
-git clone https://github.com/Aternity/FlyFast.git
-cd FlyFast
-git submodule init
-git submodule update
+```shell
+git clone --recurse-submodules https://github.com/Aternity/FlyFast.git --depth 1
 ```
 
-### 2. Get your CustomerID & SaaS Analysis Server Host details from the Aternity APM webconsole
+### 2. Get your CustomerID & SaaS Analysis Server Host details for APM
 
-Navigate to Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) > Agents > Install Agents:
+Open ALLUVIO Aternity APM (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) and navigate to Agents > Install Agents
 
 1. Find your **CustomerID**, for example *12341234-12341234-13241234*
 2. Grab **SaaS Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
 
-Those information are required to activate the Aternity OpenTelemetry Collector container, passing via the environment variable `SERVER_URL`. 
+Those information are required to activate the container of the [Aternity APM Collector](https://hub.docker.com/r/aternity/apm-collector)
 
-### 3. Get your page tag from the Aternity UJI's sites page (Optional)
+### 3. Get the UJI Tag Prefix (Optional)
 
-Navigate to Aternity UJI (for example [https://portals.bluetriangle.com](https://portals.bluetriangle.com)) > Sites > Select Site > JS Source:
-
-1. Find your **JS Source**, for example *<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my-UJI-site-id}}\.btttag\.com\/btt\.js\"><\/script>*
-
-Additional Information can be found [here](https://help.aternity.com/bundle/release_news_apm_agent_console_apm/page/console/topics/admin_config_uji.html).
+1. Open [ALLUVIO Aternity UJI](https://portals.bluetriangle.com) and navigate to Settings & Administration > Sites
+2. Find the site configured for FlyFast and get the **UJI Tag Prefix**, for example *my-UJI-Tag-Prefix-FlyFast*
 
 ### 4. Start the containers
 
@@ -53,19 +42,20 @@ Start the containers using the [docker-compose.yml](docker-compose.yml), for exa
 ```bash
 cd FlyFast
 
-# Configure the environment variables for the Aternity OpenTelemetry Collector
-export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+# Configure the ALLUVIO Aternity APM OpenTelemetry Collector
+# Replace the value with the information collected at step 2.
 export ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+export ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
-# Configure the environment variables for Aternity UJI (Optional)
-# Replace {{my-UJI-tagid}} with the UJI site id 
-export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my-UJI-site-id}}\.btttag\.com\/btt\.js\"><\/script>'
+# Optional - Configure the ALLUVIO Aternity UJI tag
+# Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
+export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
-# Build our docker with no cache
-docker-compose build --no-cache
+# Build the containers
+docker compose build --no-cache
 
-# Start the service
-docker-compose up
+# Start the containers
+docker compose up
 ```
 
 or with PowerShell:
@@ -73,18 +63,19 @@ or with PowerShell:
 ```PowerShell
 cd FlyFast
 
-# Configure the environement variable for the Aternity OpenTelemetry Collector
-$env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+# Configure the ALLUVIO Aternity APM OpenTelemetry Collector
+# Replace the value with your information collected at step 2.
 $env:ATERNITY_CUSTOMER_ID="12341234-12341234-13241234"
+$env:ATERNITY_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
-# Configure the environment variables for Aternity UJI (Optional)
-# Replace {{my-UJI-tagid}} with the UJI site id 
-$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/{{my-UJI-site-id}}\.btttag\.com\/btt\.js\"><\/script>'
+# Optional - Configure the ALLUVIO Aternity UJI tag
+# Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
+$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
-# Build our docker with no cache
+# Build the containers from scratch
 docker-compose build --no-cache
 
-# Start the service
+# Start the containers
 docker-compose up
 ```
 
@@ -98,25 +89,39 @@ Open the url in your browser and navigate through the application a few times to
 
 Go to the APM webconsole to monitor the instance and observe every transaction.
 
-![Alluvio Aternity APM OpenTelemetry Traces](/images/transaction.png)
+![ALLUVIO Aternity APM OpenTelemetry Traces](/images/transaction.png)
 
 View details of a specific transaction as a waterfall chart:
 
-![Alluvio Aternity APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
+![ALLUVIO Aternity APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
 
 ## Notes
+
 ### Stop The App and All The Containers
+
 Press `CTRL + C` in the shell where it is running.
 
 Or in a shell, go to the folder where you keep the [docker-compose.yml](docker-compose.yml) and run:
-```
+
+```shell
 docker-compose stop
 ```
 
 ### Updating Based On Future Changes
+
 Stay up to date with the latest changes.
-```
+
+```shell
 git submodule update --remote
+```
+
+### Clone FlyFast and update submodules
+
+```shell
+git clone https://github.com/Aternity/FlyFast.git
+cd FlyFast
+git submodule init
+git submodule update
 ```
 
 ## License
