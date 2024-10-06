@@ -127,10 +127,11 @@ View details of a specific transaction as a waterfall chart:
 
 ![APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
 
-<details>
-  <summary>See notes</summary>
 
 ## Notes
+
+<details>
+  <summary>See Notes</summary>
 
 ### Stop The App and All The Containers
 
