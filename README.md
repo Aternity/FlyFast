@@ -54,7 +54,7 @@ export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 export RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
 # Build the containers
-docker compose build --no-cache
+docker compose build
 
 # Start the containers
 docker compose up
@@ -70,8 +70,8 @@ cd FlyFast
 $env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 $env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
-# Build the containers from scratch
-docker-compose build --no-cache
+# Build the containers
+docker-compose build
 
 # Start the containers
 docker-compose up
@@ -95,7 +95,7 @@ export RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
 # Build the containers
-docker compose build --no-cache
+docker compose build
 
 # Start the containers
 docker compose up
@@ -115,8 +115,8 @@ $env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 # Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
 $env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
-# Build the containers from scratch
-docker-compose build --no-cache
+# Build the containers
+docker-compose build
 
 # Start the containers
 docker-compose up
