@@ -127,6 +127,9 @@ View details of a specific transaction as a waterfall chart:
 
 ![APM OpenTelemetry Transaction-Detail](/images/transaction-detail.png)
 
+<details>
+  <summary>See notes</summary>
+
 ## Notes
 
 ### Stop The App and All The Containers
@@ -161,6 +164,8 @@ cd FlyFast
 git submodule init
 git submodule update
 ```
+
+</details>
 
 ## License
 Copyright (c) 2022 - 2024 Riverbed Technology, Inc.
