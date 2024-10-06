@@ -9,9 +9,9 @@ To instrument the FlyFast demo app, the OpenTelemetry agent will be containerize
 ## Prerequisites
 
 1. an APM SaaS account, or an APM Analysis Server
-2. optional - an account for Aternity UJI
+2. *optional* an account for Aternity UJI
 3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
-4. git, see [Git](https://git-scm.com/)
+4. git ([Git](https://git-scm.com/))
 
 ## Step 1. Get a local copy
     
