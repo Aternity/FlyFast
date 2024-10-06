@@ -135,6 +135,11 @@ View details of a specific transaction as a waterfall chart:
 <details>
   <summary>See Notes</summary>
 
+
+### Add Synthetic Test
+
+In the [Riverbed Community Toolkit](https://github.com/riverbed/Riverbed-Community-Toolkit), the cookbook [Synthetic-004-Browse-FlyFast](https://github.com/riverbed/Riverbed-Community-Toolkit/tree/master/NetIM/Synthetic-Test/Synthetic-004-Browse-FlyFast) show how to set up a synthetic test for FlyFast on a Windows machine.
+
 ### Stop The App and All The Containers
 
 Press `CTRL + C` in the shell where it is running.
