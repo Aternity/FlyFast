@@ -4,7 +4,7 @@ This cookbook contains the full source code for FlyFast, utilizing both the  [Fl
 
 To instrument the FlyFast demo app, the OpenTelemetry agent will be containerized with the app and injected in the app at startup. The agent will be configured to export the tracing to the APM SaaS backend via the [APM OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) that will run in an another container.
 
-![diagram](/images/diagram.png)
+![diagram](/images/Riverbed-FlyfFast-diagram.png)
 
 ## Prerequisites
 
