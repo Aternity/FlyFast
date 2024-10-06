@@ -13,15 +13,13 @@ To instrument the FlyFast demo app, the OpenTelemetry agent will be containerize
 3. a Docker host, for example [Docker Desktop](https://www.docker.com/products/docker-desktop)
 4. git, see [Git](https://git-scm.com/)
 
-## Step by Step
-
-### 1. Get a local copy
+## Step 1. Get a local copy
     
 ```shell
 git clone --recurse-submodules https://github.com/riverbed/FlyFast.git --depth 1
 ```
 
-### 2. Get your CustomerID & Analysis Server Host details for APM
+## Step 2. Get your information for Riverbed APM
 
 Open the APM web console (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) and navigate to Agents > Install Agents
 
@@ -31,17 +29,18 @@ Open the APM web console (for example [https://apm.myaccount.aternity.com](https
 Those information are required to activate the [APM OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) with an APM  account.
 The CustomerID is not required when it is not an APM SaaS.
 
-### 3. *optional* Get the UJI Tag Prefix
+## Step 3. *optional* Get your information for Aternity UJI
 
 <details>
-  <summary>*optional* Get the UJI Tag Prefix</summary>
+  <summary>*optional* See details for Aternity UJI</summary>
+
 
 1. Open [Aternity UJI](https://portals.bluetriangle.com) and navigate to Settings & Administration > Sites
 2. Find the site configured for FlyFast and get the **UJI Tag Prefix**, for example *my-UJI-Tag-Prefix-FlyFast*
 
 </details>
 
-### 4. Start the containers
+## Step 4. Start the containers
 
 Start the containers using the [docker-compose.yaml](docker-compose.yaml), using the snipppet below
 and replacing the values with the information collected at step 2. and step 3.
@@ -73,7 +72,7 @@ docker-compose up
 ```
 
 <details>
-  <summary>*optional* Details with Aternity UJI</summary>
+  <summary>*optional* Add configuration for Aternity UJI</summary>
 
 in Bash:
 
@@ -112,13 +111,13 @@ docker-compose up
 
 </details>
 
-### 5. Navigate through The Application And Monitor
+## Step 5. Navigate through The Application And Monitor
 
 The web application should now be available on [http://localhost](http://localhost).
 
 Open the url in your browser and navigate through the application a few times to generate page views and transaction that will be monitored by APM.
 
-### 6. Open Riverbed APM web console
+## Step 6. Open Riverbed APM web console
 
 Go to the APM web console to monitor the instance and observe every transaction.
 
