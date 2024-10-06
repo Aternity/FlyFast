@@ -43,18 +43,17 @@ The CustomerID is not required when it is not an APM SaaS.
 
 ### 4. Start the containers
 
-Start the containers using the [docker-compose.yml](docker-compose.yml), for example with Bash:
+Start the containers using the [docker-compose.yaml](docker-compose.yaml), using the snipppet below
+and replacing the values with the information collected at step 2. and step 3.
+
+For example in Bash:
 
 ```bash
 cd FlyFast
 
 # Configure the APM OpenTelemetry Collector
-# Replace the value with the information collected at step 2.
-export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 export RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
-
-# Build the containers
-docker compose build
+export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 
 # Start the containers
 docker compose up
@@ -66,12 +65,8 @@ or in PowerShell:
 cd FlyFast
 
 # Configure the APM OpenTelemetry Collector
-# Replace the value with your information collected at step 2.
-$env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 $env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
-
-# Build the containers
-docker-compose build
+$env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 
 # Start the containers
 docker-compose up
@@ -86,16 +81,12 @@ in Bash:
 cd FlyFast
 
 # Configure the APM OpenTelemetry Collector
-# Replace the value with the information collected at step 2.
-export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 export RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
+export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 
 # Optional - Configure the Aternity UJI tag
 # Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
-export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
-
-# Build the containers
-docker compose build
+export ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/your-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
 # Start the containers
 docker compose up
@@ -108,15 +99,12 @@ cd FlyFast
 
 # Configure the APM OpenTelemetry Collector
 # Replace the value with your information collected at step 2.
-$env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 $env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
+$env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 
 # Optional - Configure the Aternity UJI tag
-# Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
-$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/my-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
-
-# Build the containers
-docker-compose build
+# Replace "your-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
+$env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/your-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
 # Start the containers
 docker-compose up
