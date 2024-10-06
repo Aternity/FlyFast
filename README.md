@@ -21,7 +21,7 @@ git clone --recurse-submodules https://github.com/riverbed/FlyFast.git --depth 1
 
 ## Step 2. Get your information for Riverbed APM
 
-Open the APM web console (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com)) and navigate to Agents > Install Agents
+Open the APM web console and navigate to Agents > Install Agents (for example [https://apm.myaccount.aternity.com](https://apm.myaccount.aternity.com))
 
 1. Grab the **Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
 2. Find your **CustomerID**, for example *12341234-12341234-13241234*
