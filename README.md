@@ -4,13 +4,9 @@ This cookbook contains the full source code for FlyFast, utilizing both the [Fly
 
 ![diagram](/images/Riverbed-FlyfFast-diagram.png)
 
-<details>
-  <summary>More details</summary>
-
+> [!NOTE]
 > The FlyFast demo app is instrumented with OpenTelemetry configured to send the OpenTelemetry traces to the [APM OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector), which in turns exports traces to the Riverbed APM backend (whether APM SaaS or APM Analysis Server).
 > In the app, both the WebUI frontend and the FlighSearch API backend are instrumented: the frontend instrumentation uses an experimental OpenTelemetry for Javascript in the browser, and the FlightSearch API uses OpenTelemetry for Python. 
-
-</details>
 
 ## Prerequisites
 
