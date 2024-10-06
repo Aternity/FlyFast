@@ -28,7 +28,7 @@ Open the APM web console (for example [https://apm.myaccount.aternity.com](https
 1. Grab the **Analysis Server Host**, for example *agents.apm.myaccount.aternity.com*
 2. Find your **CustomerID**, for example *12341234-12341234-13241234*
 
-Those information are required to activate the [APM OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) with an APM SaaS account.
+Those information are required to activate the [APM OpenTelemetry Collector](https://hub.docker.com/r/aternity/apm-collector) with an APM  account.
 The CustomerID is not required when it is not an APM SaaS.
 
 ### 3. *optional* Get the UJI Tag Prefix
@@ -51,7 +51,7 @@ cd FlyFast
 # Configure the APM OpenTelemetry Collector
 # Replace the value with the information collected at step 2.
 export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
-export RIVERBED_APM_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+export RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
 # Build the containers
 docker compose build --no-cache
@@ -68,7 +68,7 @@ cd FlyFast
 # Configure the APM OpenTelemetry Collector
 # Replace the value with your information collected at step 2.
 $env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
-$env:RIVERBED_APM_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+$env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
 # Build the containers from scratch
 docker-compose build --no-cache
@@ -88,7 +88,7 @@ cd FlyFast
 # Configure the APM OpenTelemetry Collector
 # Replace the value with the information collected at step 2.
 export RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
-export RIVERBED_APM_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+export RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
 # Optional - Configure the Aternity UJI tag
 # Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
@@ -109,7 +109,7 @@ cd FlyFast
 # Configure the APM OpenTelemetry Collector
 # Replace the value with your information collected at step 2.
 $env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
-$env:RIVERBED_APM_SAAS_SERVER_HOST="agents.apm.myaccount.aternity.com"
+$env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 
 # Optional - Configure the Aternity UJI tag
 # Replace "my-UJI-Tag-Prefix-FlyFast" with your UJI Tag Prefix collected at step 3.
