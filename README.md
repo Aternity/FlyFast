@@ -140,6 +140,12 @@ Or in a shell, go to the folder where you keep the [docker-compose.yml](docker-c
 docker-compose stop
 ```
 
+### Rebuild
+
+```shell
+docker compose build --no-cache
+```
+
 ### Updating Based On Future Changes
 
 Stay up to date with the latest changes.
