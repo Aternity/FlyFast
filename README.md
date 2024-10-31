@@ -44,7 +44,7 @@ The CustomerID is not required when it is not an APM SaaS.
 
 ## Step 4. Start the containers
 
-Start the containers using the [docker-compose.yaml](docker-compose.yaml), using the snipppet below
+Start the containers using the [compose.yaml](compose.yaml), using the snipppet below
 and replacing the values with the information collected at step 2. and step 3.
 
 For example in Bash:
@@ -70,7 +70,7 @@ $env:RIVERBED_APM_SERVER_HOST="agents.apm.myaccount.aternity.com"
 $env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 
 # Start the containers
-docker-compose up
+docker compose up
 ```
 
 <details>
@@ -108,7 +108,7 @@ $env:RIVERBED_APM_CUSTOMER_ID="12341234-12341234-13241234"
 $env:ALLUVIO_UJI_TAG='<script id=\"ALLUVIO-Aternity-UJI\" src=\"https:\/\/your-UJI-Tag-Prefix-FlyFast\.btttag\.com\/btt\.js\"><\/script>'
 
 # Start the containers
-docker-compose up
+docker compose up
 ```
 
 </details>
@@ -144,10 +144,10 @@ In the [Riverbed Community Toolkit](https://github.com/riverbed/Riverbed-Communi
 
 Press `CTRL + C` in the shell where it is running.
 
-Or in a shell, go to the folder where you keep the [docker-compose.yml](docker-compose.yml) and run:
+Or in a shell, go to the folder where you keep the [compose.yml](compose.yml) and run:
 
 ```shell
-docker-compose stop
+docker compose stop
 ```
 
 ### Rebuild
