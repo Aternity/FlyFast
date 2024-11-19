@@ -144,7 +144,7 @@ In the [Riverbed Community Toolkit](https://github.com/riverbed/Riverbed-Communi
 
 Press `CTRL + C` in the shell where it is running.
 
-Or in a shell, go to the folder where you keep the [compose.yml](compose.yml) and run:
+Or in a shell, go to the folder where you keep the [compose.yaml](compose.yaml) and run:
 
 ```shell
 docker compose stop
